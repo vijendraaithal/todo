@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class RegisterPage {
 
+    private static RegisterPage registerPage;
     // Elements
     private final By inpFirstName = By.cssSelector("[data-testid='first-name']");
     private final By inpLastName = By.cssSelector("[data-testid='last-name']");
@@ -15,9 +16,15 @@ public class RegisterPage {
     private final By btnSubmit = By.cssSelector("[data-testid='submit']");
 
     // Constructor
-    public RegisterPage() {
+    private RegisterPage() {}
 
+    public static RegisterPage getInstance() {
+        if(registerPage == null) {
+            registerPage = new RegisterPage();
+        }
+        return registerPage;
     }
+
     // Methods
     public void register(WebDriver driver, User user) {
         driver.findElement(inpFirstName).sendKeys(user.getFirstName());

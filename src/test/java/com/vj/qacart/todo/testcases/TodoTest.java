@@ -15,11 +15,11 @@ public class TodoTest extends BaseTest {
     public void shouldBeAbleToAddATodo() {
         User user = new User();
         driver.get("https://todo.qacart.com/signup");
-        new RegisterPage().register(driver, user);
-        new TodoPage().clickPlusIcon(driver);
-        new NewTodoPage().clickNewTodoInp(driver);
-        new NewTodoPage().clickSubmitBtn(driver);
-        String actualTodo = new TodoPage().getAddedTodoText(driver);
+        RegisterPage.getInstance().register(driver, user);
+        TodoPage.getInstance().clickPlusIcon(driver);
+        NewTodoPage.getInstance().clickNewTodoInp(driver);
+        NewTodoPage.getInstance().clickSubmitBtn(driver);
+        String actualTodo = TodoPage.getInstance().getAddedTodoText(driver);
         Assert.assertEquals(actualTodo, "Learn Selenium");
     }
 
@@ -27,12 +27,12 @@ public class TodoTest extends BaseTest {
     public void shouldBeAbleToDeleteAddedTodo() {
         User user = new User();
         driver.get("https://todo.qacart.com/signup");
-        new RegisterPage().register(driver, user);
-        new TodoPage().clickPlusIcon(driver);
-        new NewTodoPage().clickNewTodoInp(driver);
-        new NewTodoPage().clickSubmitBtn(driver);
-        new TodoPage().deleteTodoItem(driver);
-        boolean isNoAvailableTodosDisplayed = new TodoPage().isNoAvailableTodosTextDisplayed(driver);
+        RegisterPage.getInstance().register(driver, user);
+        TodoPage.getInstance().clickPlusIcon(driver);
+        NewTodoPage.getInstance().clickNewTodoInp(driver);
+        NewTodoPage.getInstance().clickSubmitBtn(driver);
+        TodoPage.getInstance().deleteTodoItem(driver);
+        boolean isNoAvailableTodosDisplayed = TodoPage.getInstance().isNoAvailableTodosTextDisplayed(driver);
         Assert.assertTrue(isNoAvailableTodosDisplayed);
     }
 }
