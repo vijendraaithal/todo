@@ -1,27 +1,16 @@
 package com.vj.qacart.todo.testcases;
 
-import com.github.javafaker.Faker;
 import com.vj.qacart.todo.base.BaseTest;
-import com.vj.qacart.todo.factory.DriverFactory;
 import com.vj.qacart.todo.models.User;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class UserTest extends BaseTest {
 
     @Test
     public void shouldBeAbleToRegister() {
-
-        Faker faker = new Faker();
-        String firstName = faker.name().firstName();
-        String lastName = faker.name().lastName();
-        String email = faker.internet().safeEmailAddress();
-        User user = new User(firstName, lastName, email, "Simple1!");
+        User user = new User();
         driver.get("https://todo.qacart.com/signup");
         driver.findElement(By.cssSelector("[data-testid='first-name']")).sendKeys(user.getFirstName());
         driver.findElement(By.cssSelector("[data-testid='last-name']")).sendKeys(user.getLastName());

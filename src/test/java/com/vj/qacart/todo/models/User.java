@@ -1,5 +1,7 @@
 package com.vj.qacart.todo.models;
 
+import com.github.javafaker.Faker;
+
 public class User {
     private String firstName;
     private String lastName;
@@ -11,6 +13,17 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+    }
+
+    public User() {
+        Faker faker = new Faker();
+        String firstName = faker.name().firstName();
+        String lastName = faker.name().lastName();
+        String email = faker.internet().safeEmailAddress();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = "Simple1!";
     }
 
     public String getFirstName() {
