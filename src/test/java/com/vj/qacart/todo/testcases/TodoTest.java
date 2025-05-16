@@ -1,6 +1,7 @@
 package com.vj.qacart.todo.testcases;
 
 import com.github.javafaker.Faker;
+import com.vj.qacart.todo.factory.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,9 +18,7 @@ public class TodoTest {
         String firsName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = faker.internet().safeEmailAddress();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
-        driver.manage().window().maximize();
+        WebDriver driver = new DriverFactory().initDriver();
         driver.get("https://todo.qacart.com/signup");
         driver.findElement(By.cssSelector("[data-testid='first-name']")).sendKeys(firsName);
         driver.findElement(By.cssSelector("[data-testid='last-name']")).sendKeys(lastName);
@@ -43,9 +42,7 @@ public class TodoTest {
         String firsName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = faker.internet().safeEmailAddress();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
-        driver.manage().window().maximize();
+        WebDriver driver = new DriverFactory().initDriver();
         driver.get("https://todo.qacart.com/signup");
         driver.findElement(By.cssSelector("[data-testid='first-name']")).sendKeys(firsName);
         driver.findElement(By.cssSelector("[data-testid='last-name']")).sendKeys(lastName);
