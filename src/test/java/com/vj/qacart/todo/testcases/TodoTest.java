@@ -1,6 +1,7 @@
 package com.vj.qacart.todo.testcases;
 
 import com.github.javafaker.Faker;
+import com.vj.qacart.todo.base.BaseTest;
 import com.vj.qacart.todo.factory.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,15 +11,16 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class TodoTest {
+public class TodoTest extends BaseTest {
 
     @Test
     public void shouldBeAbleToAddATodo() {
+
         Faker faker = new Faker();
         String firsName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = faker.internet().safeEmailAddress();
-        WebDriver driver = new DriverFactory().initDriver();
+
         driver.get("https://todo.qacart.com/signup");
         driver.findElement(By.cssSelector("[data-testid='first-name']")).sendKeys(firsName);
         driver.findElement(By.cssSelector("[data-testid='last-name']")).sendKeys(lastName);
@@ -33,7 +35,6 @@ public class TodoTest {
         driver.findElement(By.cssSelector("[data-testid='submit-newTask']")).click();
         String actualTodo = driver.findElement(By.cssSelector("[data-testid='todo-text']")).getText();
         Assert.assertEquals(actualTodo, "Learn Selenium");
-        driver.quit();
     }
 
     @Test
@@ -42,7 +43,7 @@ public class TodoTest {
         String firsName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = faker.internet().safeEmailAddress();
-        WebDriver driver = new DriverFactory().initDriver();
+
         driver.get("https://todo.qacart.com/signup");
         driver.findElement(By.cssSelector("[data-testid='first-name']")).sendKeys(firsName);
         driver.findElement(By.cssSelector("[data-testid='last-name']")).sendKeys(lastName);
@@ -60,6 +61,5 @@ public class TodoTest {
         driver.findElement(By.xpath("(//button[@aria-label='delete'])[2]")).click();
         boolean isNoAvailableTodosDisplayed = driver.findElement(By.cssSelector("[data-testid='no-todos']")).isDisplayed();
         Assert.assertTrue(isNoAvailableTodosDisplayed);
-        driver.quit();
     }
 }
