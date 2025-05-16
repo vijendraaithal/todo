@@ -32,13 +32,13 @@ public class ConfigUtils {
             }
             properties = new Properties();
             properties.load(fis);
-            System.out.println(properties.getProperty("URL"));
+            System.out.println(properties.getProperty("URL") + "/signup");
         } catch (Exception error) {
             System.out.println(error.getMessage());
         }
         return properties;
     }
-    public Object getBaseUrl() {
-        return properties.getProperty("URL");
+    public String getBaseUrl() {
+        return properties.getProperty("URL").toString();
     }
 }

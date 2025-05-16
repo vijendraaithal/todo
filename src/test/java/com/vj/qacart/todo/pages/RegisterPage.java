@@ -29,7 +29,7 @@ public class RegisterPage {
     // Methods
     public void load(WebDriver driver) {
         //driver.get("https://todo.qacart.com/signup");
-        driver.get(ConfigUtils.getInstance().getBaseUrl() + "/signup");
+        driver.get(ConfigUtils.getInstance().getBaseUrl());
     }
     public void register(WebDriver driver, User user) {
         driver.findElement(inpFirstName).sendKeys(user.getFirstName());
