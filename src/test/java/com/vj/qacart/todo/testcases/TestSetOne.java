@@ -1,4 +1,4 @@
-package com.qacart.todo.testcases;
+package com.vj.qacart.todo.testcases;
 
 import org.testng.annotations.Test;
 
