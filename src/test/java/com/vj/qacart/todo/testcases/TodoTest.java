@@ -14,7 +14,7 @@ public class TodoTest extends BaseTest {
     @Test
     public void shouldBeAbleToAddATodo() {
         User user = new User();
-        driver.get("https://todo.qacart.com/signup");
+        RegisterPage.getInstance().load(driver);
         RegisterPage.getInstance().register(driver, user);
         TodoPage.getInstance().clickPlusIcon(driver);
         NewTodoPage.getInstance().clickNewTodoInp(driver);
@@ -26,7 +26,7 @@ public class TodoTest extends BaseTest {
     @Test
     public void shouldBeAbleToDeleteAddedTodo() {
         User user = new User();
-        driver.get("https://todo.qacart.com/signup");
+        RegisterPage.getInstance().load(driver);
         RegisterPage.getInstance().register(driver, user);
         TodoPage.getInstance().clickPlusIcon(driver);
         NewTodoPage.getInstance().clickNewTodoInp(driver);

@@ -14,7 +14,7 @@ public class UserTest extends BaseTest {
     @Test
     public void shouldBeAbleToRegister() {
         User user = new User();
-        driver.get("https://todo.qacart.com/signup");
+        RegisterPage.getInstance().load(driver);
         RegisterPage.getInstance().register(driver, user);
         boolean isWelcomeHeaderDisplayed = TodoPage.getInstance().isWelcomeHeaderDisplayed(driver);
         Assert.assertTrue(isWelcomeHeaderDisplayed);
