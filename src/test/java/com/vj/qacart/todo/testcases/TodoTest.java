@@ -17,7 +17,7 @@ public class TodoTest extends BaseTest {
         RegisterPage.getInstance().load(driver);
         RegisterPage.getInstance().register(driver, user);
         TodoPage.getInstance().clickPlusIcon(driver);
-        NewTodoPage.getInstance().clickNewTodoInp(driver);
+        NewTodoPage.getInstance().clickNewTodoInp(driver, "Learn Selenium");
         NewTodoPage.getInstance().clickSubmitBtn(driver);
         String actualTodo = TodoPage.getInstance().getAddedTodoText(driver);
         Assert.assertEquals(actualTodo, "Learn Selenium");
@@ -29,7 +29,7 @@ public class TodoTest extends BaseTest {
         RegisterPage.getInstance().load(driver);
         RegisterPage.getInstance().register(driver, user);
         TodoPage.getInstance().clickPlusIcon(driver);
-        NewTodoPage.getInstance().clickNewTodoInp(driver);
+        NewTodoPage.getInstance().clickNewTodoInp(driver, "Lear Selenium");
         NewTodoPage.getInstance().clickSubmitBtn(driver);
         TodoPage.getInstance().deleteTodoItem(driver);
         boolean isNoAvailableTodosDisplayed = TodoPage.getInstance().isNoAvailableTodosTextDisplayed(driver);

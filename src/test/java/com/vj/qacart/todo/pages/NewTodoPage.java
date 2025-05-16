@@ -21,8 +21,8 @@ public class NewTodoPage {
     }
 
     // Methods
-    public void clickNewTodoInp(WebDriver driver) {
-        driver.findElement(inpNewTodo).sendKeys("Learn Selenium");
+    public void clickNewTodoInp(WebDriver driver, String todo) {
+        driver.findElement(inpNewTodo).sendKeys(todo);
     }
 
     public void clickSubmitBtn(WebDriver driver) {
